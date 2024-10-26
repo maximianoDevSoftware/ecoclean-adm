@@ -1,0 +1,90 @@
+.telaInformMarcador {
+  position: absolute;
+  width: 450px;
+  background-color: rgb(191, 200, 210);
+  padding: 15px;
+  z-index: 15;
+  right: 100px;
+  top: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px gray;
+  transition: 0.3s;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+/***************************************** REMOVENDO TELA INFORMACOES MARCADOR NA CLASSE ABAixO **/
+
+.telaInformMarcadorFora {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+.areaBTNSinfMR {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 40px;
+}
+
+.areaBTNSinfMR button {
+  box-shadow: 3px 3px 5px black;
+  border-radius: 50%;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.areaBTNSinfMR button:hover {
+  transform: scale(1.1);
+}
+
+.areaBTNSinfMR button:nth-of-type(1):hover {
+  box-shadow: -3px -3px 5px rgb(132, 132, 196),
+    -3px -3px 5px rgb(132, 132, 196) inset;
+  color: rgb(132, 132, 196);
+}
+
+.areaBTNSinfMR .btnLocationAtivo {
+  box-shadow: -3px -3px 5px #6262da, -3px -3px 5px #6262da inset;
+  color: rgb(91, 91, 233);
+}
+
+.areaBTNSinfMR button:nth-of-type(2):hover {
+  box-shadow: -3px -3px 5px rgb(97, 137, 93),
+    -3px -3px 5px rgb(97, 137, 93) inset;
+  color: rgb(97, 137, 93);
+}
+
+.areaBTNSinfMR button:nth-of-type(3):hover {
+  box-shadow: -3px -3px 5px rgb(145, 138, 128),
+    -3px -3px 5px rgb(145, 138, 128) inset;
+  color: rgb(145, 138, 128);
+}
+
+.areaInformacoesMR {
+  width: 100%;
+  padding: 10px;
+}
+
+.marcadorEstaAtivo {
+  animation: animandoMarcador 1s infinite;
+}
+
+.nomeComMarcadorAtivo {
+  opacity: 0.3;
+}
+
+@keyframes animandoMarcador {
+  0% {
+    filter: hue-rotate(0deg);
+    scale: 1.2;
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    scale: 0.8;
+  }
+}

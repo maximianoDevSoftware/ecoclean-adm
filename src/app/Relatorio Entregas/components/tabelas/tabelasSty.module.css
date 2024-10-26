@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.tabelaSemana {
+  border: 1px solid black;
+  border-collapse: collapse;
+  position: relative;
+  color: #dbdbdb;
+  font-family: "Montserrat", cursive, sans-serif;
+  transition: 0.3s;
+  width: 100%;
+  background-color: #47433c;
+}
+
+.tabelaSemana thead {
+  text-align: center;
+}
+
+.tabelaSemana tr {
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+.tabelaSemana td {
+  border: 1px solid black;
+  padding: 10px 10px;
+  transition: 0.3s;
+}
+
+.tabelaSemana tr:hover {
+  border: 1px solid whitesmoke;
+  color: white;
+  transform: scale(1.1);
+}
+
+.campoNome {
+  font-size: 12px;
+}
+
+.campoStatus {
+  font-size: 12px;
+}
+
+.campoMotorista {
+  font-size: 12px;
+}
+
+.campoValor {
+  font-size: 12px;
+  min-width: 100px;
+}

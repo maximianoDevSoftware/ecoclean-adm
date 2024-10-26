@@ -1,0 +1,477 @@
+/********************************************** Ajustando tela full com cliente Cadastrado */
+
+.telaFullUsuario {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.areaForm {
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.478);
+  transition: 1s;
+}
+
+.escolhaClienteComp {
+  width: 400px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.areaBuscaCliente {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.areaBuscaCliente input {
+  width: 80%;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  border-radius: 20px;
+}
+
+.areaBuscaCliente button {
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.areaClientes {
+  padding: 10px 20px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.areaClientes::-webkit-scrollbar {
+  width: 12px;
+}
+
+.areaClientes::-webkit-scrollbar-track {
+  background: rgb(208, 224, 211);
+}
+
+.areaClientes::-webkit-scrollbar-thumb {
+  background-color: rgb(65, 80, 69);
+  border-radius: 20px;
+}
+
+.areaClientes p {
+  cursor: pointer;
+  margin: 15px auto;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 330px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.areaClientes p:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 3px green;
+  color: green;
+  padding-left: 50px;
+}
+
+.areaClientes p:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 3px green;
+  color: green;
+  padding-left: 50px;
+}
+
+.areaClientes .areaClientesSelecionado {
+  padding-left: 70px;
+  color: green;
+  transition: 0.3s;
+}
+
+/****           estilo para cliente selecionado no formulario cliente   */
+
+.iconeCheckedCliente {
+  font-size: 30px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.areaClientes p:hover .iconeCheckedCliente {
+  opacity: 0.3;
+}
+
+.areaClientesSelecionado .iconeCheckedCliente {
+  opacity: 1;
+}
+
+/*************************************************** ESTILO PARA A TELA DE INFORMAÇÕES DO CLIENTE SELECIONADO */
+
+.telaInformsCliente {
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid blue;
+  transition: 1s;
+  overflow: hidden;
+  position: relative;
+  height: 170px;
+  transition: 0.3s;
+}
+
+.telaInfAbertoEdit {
+  height: 300px;
+}
+
+.telaInformsCliente h3 {
+  font-size: 20px;
+}
+
+.telaInformsCliente p {
+  font-size: 15px;
+}
+
+.areaInformsEntrega {
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid green;
+  transition: 1s;
+  background-color: white;
+}
+
+.areaInformsEntrega h3 {
+  font-size: 20px;
+}
+
+.areaInformsEntrega p {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.areaInformsEntrega p input {
+  width: 200px;
+  border-bottom: 2px solid black;
+}
+
+.areaInformsEntrega p select {
+  width: 200px;
+  border-bottom: 2px solid black;
+}
+
+.botaoGerarEntregaCliente {
+  border: 2px solid black;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.8s;
+}
+
+.botaoGerarEntregaCliente:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px white, 0px 0px 20px green inset;
+}
+
+.botaoGerarEntregaCliente:active {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px white, 0px 0px 50px green inset;
+  color: black;
+  font-weight: bolder;
+}
+
+.navLateral {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+  transition: 1s;
+}
+
+.navLateral button {
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+}
+
+.navLateral button:hover {
+  transform: scale(1.2);
+}
+
+.fecharTela {
+  color: red;
+  position: relative;
+}
+
+.navLateral button:after {
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  width: 130px;
+  left: 120%;
+  background-color: white;
+  z-index: 100;
+  font-size: 15px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px black;
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.navLateral button:nth-child(1):after {
+  content: "Fechar janela";
+}
+
+.navLateral button:nth-child(2):after {
+  content: "Remover cliente";
+}
+
+.navLateral button:nth-child(3):after {
+  content: "Editar Cliente";
+}
+
+.navLateral button:nth-child(4):after {
+  content: "Adicionar Cliente";
+}
+
+.navLateral button:hover:after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/******************   trabalhando efeito de esfumaçados para adicionar as trocas de tela ******************/
+
+.esfumacandoCima {
+  transform: translateY(-200%);
+  opacity: 0;
+}
+
+.retiraNaEsquerda {
+  filter: blur(200px);
+  transform: translateX(-110vw);
+}
+
+/*******************************   Componentes da tela novo Cliente          */
+
+.formNovoCliente {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.areaInformsCliente {
+  border: 2px solid blue;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: 1s;
+  opacity: 1;
+}
+
+.areaInformsCliente .tituloArea {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: black;
+  text-align: left;
+}
+
+.areaInformsCliente h3 {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.areaInformsCliente input {
+  border-bottom: 2px solid black;
+  width: 150px;
+  padding: 0px 20px;
+}
+
+.navLateral .buttonDiv {
+  content: "Adicionar Cliente";
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.adcClienteNewForm::after {
+  content: "Adicionar cliente";
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  width: 130px;
+  left: 120%;
+  background-color: white;
+  z-index: -1;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px black;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.buttonDiv:hover {
+  transform: scale(1.2);
+}
+
+.adcClienteNewForm:hover:after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.buscaClienteNewForm::after {
+  content: "Procurar clientes";
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  width: 130px;
+  left: 120%;
+  background-color: white;
+  z-index: -1;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px black;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.buscaClienteNewForm:hover:after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.areaEntregaInfosNC {
+  transition: 1s;
+}
+
+/****************************************************************** ESTILIZAÇÃO PARA TELA DE EDITAR CLIENTE */
+
+.clienteTelaInform {
+  position: relative;
+  transition: 0.3s;
+}
+
+.telaEditCliente {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: rgb(205, 205, 205);
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  opacity: 1;
+  box-shadow: 0px -5px 5px blue inset;
+}
+
+.telaEditClienteFora {
+  opacity: 0;
+}
+
+.telaEditCliente .tituloEdit {
+  font-size: 20px;
+  text-align: center;
+}
+
+.telaEditCliente h3 {
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px auto;
+  padding: 0 20px;
+}
+
+.telaEditCliente input {
+  width: 150px;
+  padding: 5px;
+}
+
+.areaButtonsUpdateUser {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+
+.areaButtonsUpdateUser button {
+  padding: 5px 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.areaButtonsUpdateUser button:nth-of-type(1) {
+  color: firebrick;
+  border: firebrick 2px solid;
+}
+
+.areaButtonsUpdateUser button:nth-of-type(1):hover {
+  color: white;
+  border: black 2px solid;
+  background-color: firebrick;
+}
+
+.areaButtonsUpdateUser button:nth-of-type(2) {
+  color: blue;
+  border: blue 2px solid;
+}
+
+.areaButtonsUpdateUser button:nth-of-type(2):hover {
+  color: white;
+  border: black 2px solid;
+  background-color: blue;
+}

@@ -1,0 +1,163 @@
+.areaLoginStatus {
+  position: absolute;
+  z-index: 10;
+  right: 50px;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.telaLoginStatus {
+  width: 100px;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 20px;
+  position: relative;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 200px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.telaLoginStatus .areaInformsUser {
+  margin-top: 20px;
+}
+
+.telaLoginStatus .marcosFoto {
+  background-position: center;
+  background-image: url("../../../public/marcos.png");
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.telaLoginStatus .ueneFoto {
+  background-position: center;
+  background-image: url("../../../public/uene.png");
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: brightness(1.5);
+}
+
+.telaLoginStatus .leoFoto {
+  background-position: center;
+  background-image: url("../../../public/leo.png");
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.telaLoginStatus .joaoFoto {
+  background-position: center;
+  background-image: url("../../../public/joao.png");
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.userOff {
+  box-shadow: 0px 0px 10px firebrick inset;
+  border: 2px solid firebrick;
+}
+
+.userOff:nth-child(1) {
+  box-shadow: 0px 0px 10px firebrick inset;
+  border: 2px solid firebrick;
+}
+
+.userOff .fotosUser {
+  box-shadow: 0px 0px 10px firebrick inset;
+  border: 2px solid firebrick;
+}
+
+.userOff .textUserStatus {
+  color: firebrick;
+}
+
+.userOn {
+  box-shadow: 0px 0px 10px #0d8d13 inset;
+  border: 2px solid #0d8d13;
+}
+
+.userOn .fotosUser {
+  box-shadow: 0px 0px 10px #0d8d13 inset;
+  border: 2px solid #0d8d13;
+}
+
+.userOn .textUserStatus {
+  color: #0d8d13;
+}
+
+.btnEnviarMensagemMotoraLogin::after {
+  content: "Notificar rota de entregas para o motorista";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  background-color: white;
+  width: 90%;
+  color: green;
+  z-index: 29;
+  transform: translate(-110%, -100%);
+  padding: 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+  box-shadow: 0px 0px 3px green;
+}
+
+.btnEnviarMensagemMotoraLogin:hover::after {
+  transform: translate(0%, -100%);
+  opacity: 1;
+}
+
+.btnViajarLocalMotorista::after {
+  content: "Viajar até a localização do motorista.";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  background-color: white;
+  width: 90%;
+  color: #242475;
+  z-index: 29;
+  transform: translate(-110%, -100%);
+  padding: 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+  box-shadow: 0px 0px 5px #242475;
+}
+
+.btnViajarLocalMotorista:hover::after {
+  transform: translate(0%, -100%);
+  opacity: 1;
+}
+
+.btnLicacaoMotorista::after {
+  content: "Ligar para este motorista";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  background-color: white;
+  width: 90%;
+  color: #682475;
+  z-index: 29;
+  transform: translate(-110%, -100%);
+  padding: 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+  box-shadow: 0px 0px 5px #682475;
+}
+
+.btnLicacaoMotorista:hover::after {
+  transform: translate(0%, -100%);
+  opacity: 1;
+}

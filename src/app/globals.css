@@ -2,20 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.corpoProjeto {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.linhaRota {
+  z-index: 100;
+  box-shadow: 3px 3px 10px greenyellow;
+  background-color: red;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.linhaRota:hover {
+  z-index: 100;
+  box-shadow: 3px 3px 10px greenyellow;
+  background-color: blueviolet;
+}
+
+.roalgemPers::-webkit-scrollbar {
+  width: 12px;
+}
+
+.roalgemPers::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0);
+  border-radius: 10px;
+}
+
+.roalgemPers::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+.chart-container {
+  width: 70%;
+}
+
+.chart-container2 {
+  width: 30%;
 }

@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.telaFullRelatorioEntregas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telaFullRelatorioEntregasFora {
+  transform: translateX(-100%);
+}
+
+.containerMarrom {
+  width: 90%;
+  height: 90%;
+  background-color: #7a7265;
+  border-radius: 20px;
+  padding: 20px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.containerMarrom::-webkit-scrollbar {
+  width: 12px;
+}
+
+.containerMarrom::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0);
+  border-radius: 10px;
+}
+
+.containerMarrom::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+.containerGridRelatorios {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "tituloDispx tituloDispx infoMotora2 infoMotora2 infoMotora2"
+    "infoMotora1 infoMotora1 infoMotora2 infoMotora2 infoMotora2"
+    "infoMotora3 infoMotora3 infoMotora3 infoMotora4 infoMotora4"
+    "infoMotora3 infoMotora3 infoMotora3 infoMotora4 infoMotora4";
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tituloDisplay {
+  grid-area: tituloDispx;
+  font-family: Montserrat;
+  color: rgb(239, 244, 255);
+  font-size: 50px;
+  text-shadow: 90px 30px 5px rgba(0, 0, 0, 0.509);
+}
+
+.informsGraficoDisplay {
+  grid-area: infoMotora3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #47433c;
+}
+
+.informsTabelaDisplay {
+  grid-area: infoMotora2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.informsFormularioDisplay {
+  grid-area: infoMotora4;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.informsEntregasDiaDisplay {
+  grid-area: infoMotora1;
+  background-color: rgb(207, 201, 194);
+  border-radius: 15px;
+}

@@ -1,0 +1,19 @@
+.saiDireita {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.saiEsquerda {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.saiCima {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.saiBaixo {
+  transform: translateY(100%);
+  opacity: 0;
+}

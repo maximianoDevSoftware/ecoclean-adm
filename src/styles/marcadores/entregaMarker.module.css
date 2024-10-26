@@ -1,0 +1,210 @@
+.areaMark {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, -80%);
+  transition: 0.3s;
+}
+
+.areaMark:hover {
+  transform: translate(0, -80%) scale(1.05);
+}
+
+.areaStatsEntrega {
+  background-color: rgb(247, 251, 255);
+  border: 3px solid white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 17px;
+  transition: 0.3s;
+  background-image: url("../../../public/entregaStatus.webp");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.areaMark:hover .areaNomeMark {
+  background-color: #14591d;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0px 0px 2px white;
+}
+
+.entregaMarcador {
+  width: 40px;
+  height: 40px;
+  background-image: url("/localiza.png");
+  background-size: contain;
+}
+
+.areaMark:hover .entregaMarcador {
+  filter: hue-rotate(100deg);
+}
+
+/** Estilo para foto entregador no icone  */
+
+.fotoEntregadorIcone {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: whitesmoke;
+  border: 2px solid black;
+  width: 30px;
+  height: 30px;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+}
+
+.marcosIconeEntrega {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-image: url("../../../public/marcos.png");
+  background-size: contain;
+}
+
+.ueneIconeEntrega {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-image: url("../../../public/uene.png");
+  background-size: contain;
+  filter: brightness(1.5);
+}
+
+.leoIconeEntrega {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-image: url("../../../public/leo.png");
+  background-size: contain;
+  filter: brightness(1.5);
+}
+
+.joaoIconeEntrega {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-image: url("../../../public/joao.png");
+  background-size: contain;
+  filter: brightness(1.5);
+}
+
+/** Conteudo com o nome da entrega no hover **/
+
+.nomeEntregaIcone {
+  background-color: white;
+  position: absolute;
+  padding: 10px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50px;
+  height: 60px;
+  opacity: 0;
+  transform: translate(-10px, -15px);
+  box-shadow: -2px -2px 5px #14591d inset;
+  border-radius: 50px;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.nomeEntregaIcone h3 {
+  display: inline;
+  position: absolute;
+  width: 250px;
+  left: 20px;
+  text-align: center;
+}
+
+.areaStatsEntrega:hover .nomeEntregaIcone {
+  width: 300px;
+  opacity: 1;
+}
+
+.marcadorAndamento:hover .nomeEntregaIcone {
+  width: 300px;
+  opacity: 1;
+}
+
+.marcadorAndamento {
+  background-color: rgb(176, 255, 157);
+  border: 3px solid rgb(2, 169, 27);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 17px;
+  transition: 0.3s;
+  background-image: url("../../../public/entregaStatus.webp");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.areaEntregadoRota {
+  background-color: rgba(247, 251, 255, 0.527);
+  border: 3px solid white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 17px;
+  transition: 0.3s;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linhaRota {
+  z-index: 100;
+  box-shadow: 3px 3px 10px greenyellow;
+}
+
+.linhaRota:hover {
+  z-index: 100;
+  box-shadow: 3px 3px 10px greenyellow;
+  background-color: blueviolet;
+}

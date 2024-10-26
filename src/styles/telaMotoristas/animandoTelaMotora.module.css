@@ -1,0 +1,124 @@
+.telaMotoraAnimada {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.circuloCor {
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.circulo1 {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #c6e4df;
+  animation: animandoTelaMotoraFundo2 1s linear infinite alternate;
+}
+
+.circulo2 {
+  top: 0;
+  transform: translate(0%, -50%);
+  background-color: rgb(212, 212, 212);
+  animation: animandoTelaMotoraFundo2 1s linear 1s infinite alternate;
+}
+
+.circulo3 {
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  background-color: #bee6d0;
+  animation: animandoTelaMotoraFundo2 1s linear 2s infinite alternate;
+}
+
+.circulo4 {
+  right: 0;
+  transform: translate(50%, 0%);
+  background-color: #dbb9c7;
+  animation: animandoTelaMotoraFundo2 1s linear 3s infinite alternate;
+}
+
+.circulo5 {
+  right: 0;
+  bottom: 0;
+  transform: translate(50%, 50%);
+  background-color: #7185c5;
+  animation: animandoTelaMotoraFundo2 1s linear 4s infinite alternate;
+}
+
+.circulo6 {
+  bottom: 0;
+  transform: translate(0%, 50%);
+  background-color: #84ac8a;
+  animation: animandoTelaMotoraFundo2 1s linear 5s infinite alternate;
+}
+
+.circulo7 {
+  left: 0;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  background-color: #ad97b6;
+  animation: animandoTelaMotoraFundo2 1s linear 6s infinite alternate;
+}
+
+.circulo8 {
+  left: 0;
+  transform: translate(-50%, 0%);
+  background-color: #97a0be;
+  animation: animandoTelaMotoraFundo2 1s linear 7s infinite alternate;
+}
+
+@keyframes animandoTelaMotoraFundo2 {
+  0% {
+    filter: blur(50px);
+  }
+  100% {
+    filter: blur(300px);
+  }
+}
+
+.quadradoAnim {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.199) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(221, 221, 221, 0.466);
+  transform: translateY(100%);
+  animation: animandoTelaMotoraFundo 10s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes animandoTelaMotoraFundo {
+  0% {
+    bottom: 0;
+    rotate: 0deg;
+  }
+  100% {
+    bottom: 110%;
+    rotate: 480deg;
+  }
+}
+
+.displayMotoraEntregas .entregaDesteEntregador {
+  box-shadow: 3px 3px 5px green;
+  border: 3px solid green;
+  background-color: green;
+  background-image: none;
+}

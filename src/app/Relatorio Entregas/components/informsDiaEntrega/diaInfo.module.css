@@ -1,0 +1,113 @@
+.areaInfoEntregaDia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dispInfoDia {
+  position: relative;
+}
+
+.areaInfoEntregaDia .dispInfoDia:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 150px;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.dispInfoDia .areaFotoEntregaDia {
+  background-color: #001d4a;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.418);
+}
+
+.dispInfoDia .areaFotoEntregaDia:hover {
+  border-radius: 5px;
+}
+
+.areaFotoEntregaDia:hover .fotoEntregasDia {
+  transition: 0.3s;
+}
+
+.areaFotoEntregaDia:hover .fotoEntregasDia {
+  opacity: 0;
+}
+
+.motoraEntregasDia {
+  transition: 0.3s;
+  position: absolute;
+  opacity: 0;
+  color: white;
+}
+
+.areaFotoEntregaDia:hover .motoraEntregasDia {
+  opacity: 1;
+}
+
+.areaFotoEntregaDia .fotoMarcosEntregasDia {
+  background-color: #fff;
+  background-image: url("/marcos.png");
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.areaFotoEntregaDia .fotoUeneEntregasDia {
+  background-color: #fff;
+  background-image: url("/uene.png");
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.areaFotoEntregaDia .fotoLeoEntregasDia {
+  background-color: #fff;
+  background-image: url("/leo.png");
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.areaFotoEntregaDia .fotoJoaoEntregasDia {
+  background-color: #fff;
+  width: 80%;
+  background-image: url("/joao.png");
+  height: 80%;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.dispInfoDia h3 {
+  text-align: center;
+}
+
+.dispInfoDia span {
+  font-size: 20px;
+}
+
+.dispInfoDia .spamFaturamento {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+}
