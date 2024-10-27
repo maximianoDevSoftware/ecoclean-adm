@@ -21,8 +21,20 @@ import getSocket from "@/socket/socketCliente";
 let controlerRotaClientes = true;
 
 export default function ClientesEntregas() {
-  const { todosClientes, atualizandoClientes, atualizandoEntregas } =
-    useContext(ContextEntregasClientes);
+  const {
+    todosClientes,
+    atualizandoClientes,
+    atualizandoEntregas,
+    entregasDia,
+  } = useContext(ContextEntregasClientes);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [estadoPagina, setEstadoPagina] = useState("Disponível");
+
+  const filtroClientes = todosClientes?.filter((cadaCliente) =>
+    cadaCliente.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const socket = getSocket();
 
@@ -166,6 +178,13 @@ export default function ClientesEntregas() {
     }
   };
 
+  useEffect(() => {
+    if (entregasDia && estadoPagina == "Adicionando Entrega Cliente") {
+      setEstadoPagina("Disponível");
+      fechandoTela();
+    }
+  }, [entregasDia]);
+
   return (
     <>
       {usuarioLogado?.userName === "Administradores" && (
@@ -179,14 +198,19 @@ export default function ClientesEntregas() {
               {/* Sessão responsável por exibir os clientes disponíves no bd para entrega */}
               <div className={estilo.escolhaClienteComp}>
                 <div className={estilo.areaBuscaCliente}>
-                  <input type="text" placeholder="Encontrar cliente" />
+                  <input
+                    type="text"
+                    placeholder="Encontrar cliente"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
                   <button>
                     <MdFindReplace className="inline-block size-10" /> Pesquisar
                   </button>
                 </div>
 
                 <div className={estilo.areaClientes} ref={areaClientes}>
-                  {todosClientes?.map((cliente) => {
+                  {filtroClientes?.map((cliente) => {
                     return (
                       <p
                         key={cliente.nome + cliente.id}
@@ -355,15 +379,25 @@ export default function ClientesEntregas() {
                   </p>
                 </div>
                 {/* Aqui esta o botão para gerar a entrega do cliente */}
-                <button
-                  className={`${estiloFade.saiBaixo} ${estilo.botaoGerarEntregaCliente}`}
-                  onClick={() => {
-                    genrandoEntrega();
-                  }}
-                >
-                  GERAR ROTA DE ENTREGA
-                  <TbTruckDelivery className="size-10 absolute right-1" />
-                </button>
+                {(estadoPagina === "Disponível" && (
+                  <button
+                    className={`${estiloFade.saiBaixo} ${estilo.botaoGerarEntregaCliente}`}
+                    onClick={(ev) => {
+                      ev.preventDefault();
+                      setEstadoPagina("Adicionando Entrega Cliente");
+                      genrandoEntrega();
+                    }}
+                  >
+                    GERAR ROTA DE ENTREGA
+                    <TbTruckDelivery className="size-10 absolute right-1" />
+                  </button>
+                )) ||
+                  (estadoPagina !== "Disponível" && (
+                    <div className={`${estilo.botaoGerarEntregaCliente}`}>
+                      Adicionando Entrega...{" "}
+                      <span className={`${estilo.circuloLoadinPeq}`}></span>
+                    </div>
+                  ))}
               </div>
 
               <div className={`${estiloFade.saiBaixo} ${estilo.navLateral}`}>

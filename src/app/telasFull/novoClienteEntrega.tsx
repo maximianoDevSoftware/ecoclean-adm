@@ -16,11 +16,12 @@ import { contextAutenticacao } from "@/contexts/contextoUsuario";
 import getSocket from "@/socket/socketCliente";
 
 export default function NovoClienteEntregas() {
-  const { atualizandoClientes, atualizandoEntregas } = useContext(
+  const { atualizandoClientes, atualizandoEntregas, entregasDia } = useContext(
     ContextEntregasClientes
   );
   const { usuarioLogado } = useContext(contextAutenticacao);
   const telaFullClient = useRef<HTMLDivElement>(null);
+  const [estadoPagina, setEstadoPagina] = useState("Disponível");
   const [formData, setFormData] = useState({
     nome: "",
     cidade: "",
@@ -134,7 +135,12 @@ export default function NovoClienteEntregas() {
     }
   };
 
-  useEffect(() => {}, [usuarioLogado]);
+  useEffect(() => {
+    if (entregasDia && estadoPagina == "Adicionando Entrega") {
+      setEstadoPagina("Disponível");
+      fechandoTela();
+    }
+  }, [entregasDia]);
 
   return (
     <>
@@ -150,7 +156,10 @@ export default function NovoClienteEntregas() {
             <form
               className={`${estilo.formNovoCliente}`}
               onSubmit={(ev) => {
+                ev.preventDefault();
+                setEstadoPagina("Adicionando Entrega");
                 genrandoEntrega(ev);
+                // efeitoLoadingElements();
               }}
             >
               <div
@@ -238,6 +247,7 @@ export default function NovoClienteEntregas() {
                       <option value="Marcos">Marcos</option>
                       <option value="Uene">Uene</option>
                       <option value="Leo">Leo</option>
+                      <option value="João">Leo</option>
                     </select>
                   </p>
                   <p>
@@ -249,13 +259,21 @@ export default function NovoClienteEntregas() {
                   </p>
                 </div>
 
-                <button
-                  className={`${estilo.botaoGerarEntregaCliente}`}
-                  type="submit"
-                >
-                  GERAR ROTA DE ENTREGA
-                  <TbTruckDelivery className="size-10 absolute right-1" />
-                </button>
+                {(estadoPagina === "Disponível" && (
+                  <button
+                    className={`${estilo.botaoGerarEntregaCliente}`}
+                    type="submit"
+                  >
+                    GERAR ROTA DE ENTREGA
+                    <TbTruckDelivery className="size-10 absolute right-1" />
+                  </button>
+                )) ||
+                  (estadoPagina !== "Disponível" && (
+                    <div className={`${estilo.botaoGerarEntregaCliente}`}>
+                      Adicionando Entrega...{" "}
+                      <span className={`${estilo.circuloLoadinPeq}`}></span>
+                    </div>
+                  ))}
               </div>
             </form>
 

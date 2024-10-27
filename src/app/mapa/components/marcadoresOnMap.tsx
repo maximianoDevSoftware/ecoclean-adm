@@ -131,12 +131,22 @@ export function MarcadoresMapaonSide() {
           longitude: leoUser.localizacao.longitude,
         }
       );
+
+      const entregasOrdenadaJoao = ordenarEntregasPorProximidade(
+        entregasCategorizadas[3],
+        {
+          latitude: joaoUser.localizacao.latitude,
+          longitude: joaoUser.localizacao.longitude,
+        }
+      );
       rotasEntregasMotoristas("Marcos", entregasOrdenadasMarcos);
       rotasEntregasMotoristas("Uene", entregasOrdenadaUene);
       rotasEntregasMotoristas("Leo", entregasOrdenadaLeo);
-      desenharRota(entregasOrdenadasMarcos, marcosUser, "blue");
-      desenharRota(entregasOrdenadaUene, ueneUser, "red");
-      desenharRota(entregasOrdenadaLeo, leoUser, "green");
+      rotasEntregasMotoristas("Leo", entregasOrdenadaJoao);
+      desenharRota(entregasOrdenadasMarcos, marcosUser, "#01c1fcc3");
+      desenharRota(entregasOrdenadaUene, ueneUser, "#b90000c7");
+      desenharRota(entregasOrdenadaLeo, leoUser, "#ffee00cf");
+      desenharRota(entregasOrdenadaJoao, joaoUser, "#33ff0099");
     }
   }, [entregasDia, entregasAndamento]);
 
@@ -165,7 +175,7 @@ export function categorizarEntregas(todasEntregas: entregasTipo[]) {
       case "Leo":
         entregasLeo.push(entrega);
         break;
-      case "Joao":
+      case "João":
         entregasJoao.push(entrega);
         break;
       default:

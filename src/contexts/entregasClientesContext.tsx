@@ -66,7 +66,7 @@ export function EntregasClientesProvedor({
         (entrega) => entrega.status === "Disponível"
       );
       let dataEntregasAndamento = todasEntregas.filter(
-        (entrega) => entrega.status === "Entregando"
+        (entrega) => entrega.status === "Andamento"
       );
       let dataEntregasConcluidas = todasEntregas.filter(
         (entrega) => entrega.status === "Concluída"

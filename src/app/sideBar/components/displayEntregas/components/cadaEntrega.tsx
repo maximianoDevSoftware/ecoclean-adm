@@ -257,7 +257,6 @@ export default function EntregaSingular() {
             </button>
             <button
               onClick={() => {
-                console.log(dadosFormUpdate);
                 if (entrega.id) {
                   let telaUpdateEntrega = document.getElementById(entrega.id);
                   let novosDadosDefinidos: entregasTipo = {
@@ -305,7 +304,6 @@ export default function EntregaSingular() {
                     dia: entrega.dia,
                     coordenadas: entrega.coordenadas,
                   };
-                  console.log(novosDadosDefinidos);
                   socket.emit("Atualizar Entrega", novosDadosDefinidos);
                 }
               }}

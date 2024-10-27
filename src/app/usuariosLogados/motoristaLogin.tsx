@@ -128,7 +128,7 @@ ${cadaEntrega.nome}
                   className={`${estilo.btnEnviarMensagemMotoraLogin}`}
                   onClick={(ev) => {
                     console.log("Olá Marcos, temos uma rota de entrega pronta");
-                    console.log(rotaEntregasMarcos);
+                    // console.log(rotaEntregasMarcos);
                     if (rotaEntregasMarcos)
                       enviarMensagemRotaMotorista("Marcos", rotaEntregasMarcos);
                   }}
@@ -177,7 +177,7 @@ ${cadaEntrega.nome}
                   className={`${estilo.btnEnviarMensagemMotoraLogin}`}
                   onClick={(ev) => {
                     console.log("Olá Uene, temos uma rota de entrega pronta");
-                    console.log(rotaEntregasUene);
+                    // console.log(rotaEntregasUene);
                     if (rotaEntregasUene)
                       enviarMensagemRotaMotorista("Uene", rotaEntregasUene);
                   }}
@@ -226,7 +226,7 @@ ${cadaEntrega.nome}
                   className={`${estilo.btnEnviarMensagemMotoraLogin}`}
                   onClick={(ev) => {
                     console.log("Olá Leo, temos uma rota de entrega pronta");
-                    console.log(rotaEntregasLeo);
+                    // console.log(rotaEntregasLeo);
                     if (rotaEntregasLeo)
                       enviarMensagemRotaMotorista("Leo", rotaEntregasLeo);
                   }}
@@ -275,7 +275,7 @@ ${cadaEntrega.nome}
                   className={`${estilo.btnEnviarMensagemMotoraLogin}`}
                   onClick={(ev) => {
                     console.log("Olá João, temos uma rota de entrega pronta");
-                    console.log(rotaEntregasJoao);
+                    // console.log(rotaEntregasJoao);
                     if (rotaEntregasJoao)
                       enviarMensagemRotaMotorista("João", rotaEntregasJoao);
                   }}
@@ -310,7 +310,7 @@ ${cadaEntrega.nome}
                     className={`${estilo.btnEnviarMensagemMotoraLogin}`}
                     onClick={(ev) => {
                       console.log("Olá João, temos uma rota de entrega pronta");
-                      console.log(rotaEntregasJoao);
+                      // console.log(rotaEntregasJoao);
                       if (rotaEntregasJoao)
                         enviarMensagemRotaMotorista("João", rotaEntregasJoao);
                     }}

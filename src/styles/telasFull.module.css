@@ -304,7 +304,6 @@
   flex-direction: column;
   gap: 5px;
   transition: 1s;
-  opacity: 1;
 }
 
 .areaInformsCliente .tituloArea {
@@ -474,4 +473,32 @@
   color: white;
   border: black 2px solid;
   background-color: blue;
+}
+
+.circuloLoadinPeq {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px black;
+  margin-left: 20px;
+  animation: loadinPeq 1s linear infinite;
+  border: 10px solid white;
+  border-bottom: 10px solid red;
+}
+
+@keyframes loadinPeq {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 3px 3px 6px #181e72;
+    border-bottom: 10px solid #181e72;
+  }
+  50% {
+    border-bottom: 10px solid #277218;
+    box-shadow: 3px 3px 6px #277218;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 3px 3px 6px rgb(24, 30, 114);
+    border-bottom: 10px solid #181e72;
+  }
 }
