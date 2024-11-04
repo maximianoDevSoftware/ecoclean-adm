@@ -4,11 +4,25 @@
   background-color: rgb(139, 132, 123);
   width: 400px;
   height: 100%;
-  z-index: 10;
-  position: absolute;
+  z-index: 15;
+  position: relative;
   left: 0;
   overflow-y: scroll;
   box-shadow: 0px 0px 30px inset black, 3px 3px 10px #0000004a;
+}
+
+.areaLoginStatus {
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 5px black;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+  margin: 10px auto;
+  overflow: hidden;
+  height: 70px;
+  transition: 0.3s;
+  z-index: 10;
+  position: relative;
 }
 
 /******************************************* SB - DISPLAY ENTREGAS *****/
@@ -415,4 +429,15 @@
 
 .iterLocationEntrega:hover::after {
   transform: translate(-20px, -80%);
+}
+
+@media screen and (max-width: 720px) {
+  .sideBarArea {
+    width: 100%;
+  }
+}
+
+.mapaElemento {
+  z-index: 5;
+  position: relative;
 }

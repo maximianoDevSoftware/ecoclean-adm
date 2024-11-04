@@ -12,6 +12,7 @@
   justify-content: center;
   transition: 1s ease-out;
   gap: 15px;
+  overflow: hidden;
 }
 
 .telaAutenticFora {

@@ -8,11 +8,12 @@
   width: 100vw;
   height: 100vh;
   z-index: 100;
-  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s;
+  overflow: hidden;
+  opacity: 1;
 }
 
 .areaForm {
@@ -252,18 +253,22 @@
 
 .navLateral button:nth-child(1):after {
   content: "Fechar janela";
+  background-color: white;
 }
 
 .navLateral button:nth-child(2):after {
   content: "Remover cliente";
+  background-color: white;
 }
 
 .navLateral button:nth-child(3):after {
   content: "Editar Cliente";
+  background-color: white;
 }
 
 .navLateral button:nth-child(4):after {
   content: "Adicionar Cliente";
+  background-color: white;
 }
 
 .navLateral button:hover:after {
@@ -281,6 +286,7 @@
 .retiraNaEsquerda {
   filter: blur(200px);
   transform: translateX(-110vw);
+  opacity: 0;
 }
 
 /*******************************   Componentes da tela novo Cliente          */
@@ -500,5 +506,80 @@
     transform: rotate(360deg);
     box-shadow: 3px 3px 6px rgb(24, 30, 114);
     border-bottom: 10px solid #181e72;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .areaForm {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .areaClientes {
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 14px;
+  }
+
+  .areaClientes p {
+    margin: 10px 0;
+  }
+
+  .areaBuscaCliente {
+    width: 100%;
+  }
+
+  .areaBuscaCliente button {
+    display: none;
+  }
+
+  .areaBuscaCliente input {
+    margin: 10px 0;
+  }
+
+  .escolhaClienteComp {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .navLateral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .formNovoCliente {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .areaInformsCliente {
+    width: 100%;
+    margin: 0;
+    gap: 0;
+  }
+
+  .telaInformsCliente {
+    overflow-y: scroll;
+  }
+
+  .areaBotoesCelular button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid black;
+    box-shadow: 2px 2px 3px gray;
+    background-color: white;
   }
 }

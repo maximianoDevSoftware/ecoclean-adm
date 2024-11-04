@@ -93,6 +93,8 @@ export function ProvedorAutenticacao({
     senha: "",
   });
 
+  const [estaAutenticando, setEstaAutenticando] = useState(false);
+
   const atualizandoFormulario = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -108,6 +110,7 @@ export function ProvedorAutenticacao({
 
   const autenticandoFormulario = (ev: FormEvent) => {
     ev.preventDefault();
+    setEstaAutenticando(true);
     console.log(`Autenticando usuario: ${dadosForm.userName}`);
     socket.emit("Autenticar Usuario", dadosForm);
   };
@@ -117,6 +120,7 @@ export function ProvedorAutenticacao({
     socket.on(
       "Usuario Autenticado",
       async (usuarioAutenticadoServidor: usuarioTipo) => {
+        setEstaAutenticando(false);
         atualizandoTodosUsuarios();
         if (usuarioAutenticadoServidor.userName) {
           setUsuarioLogado(usuarioAutenticadoServidor);
@@ -220,7 +224,13 @@ export function ProvedorAutenticacao({
                 onChange={atualizandoFormulario}
               />
 
-              <button type="submit">LOGIN</button>
+              <button
+                type="submit"
+                disabled={estaAutenticando}
+                className="disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {estaAutenticando ? "Autenticando usuário..." : "LOGIN"}
+              </button>
             </form>
           </div>
         </div>

@@ -19,10 +19,11 @@ export function SideBar() {
   return (
     <>
       {usuarioLogado?.userName === "Administradores" && (
-        <div className={estilo.sideBarArea + " roalgemPers"}>
+        <div className={estilo.sideBarArea + " roalgemPers"} id="sideBarId">
           <>
             <DisplayEntregas />
             <DisplayAndamento />
+
             <BotoesAdministrarEntregas />
           </>
         </div>

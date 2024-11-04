@@ -107,7 +107,7 @@ ${cadaEntrega.nome}
   return (
     <>
       {usuarioLogado?.userName === "Administradores" && (
-        <div className={`${estilo.areaLoginStatus}`}>
+        <div className={`${estilo.areaLoginStatus}`} id="telaMotoristas">
           <div
             className={`${estilo.telaLoginStatus} ${estilo.userOff}`}
             ref={marcosEl}
