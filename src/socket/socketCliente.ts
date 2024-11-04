@@ -5,7 +5,7 @@ let socket: Socket | null = null;
 
 const getSocket = () => {
   if (!socket) {
-    socket = io("http://192.168.3.102:3000"); // Substitua pela URL do seu servidor
+    socket = io("https://sercidor-ecoclean-6c6fe114a9e0.herokuapp.com/"); // Substitua pela URL do seu servidor
   }
   return socket;
 };
