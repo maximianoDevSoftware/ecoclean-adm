@@ -191,6 +191,9 @@ Número: ${entregaEvidencia?.numero}
           <h3>Valor: {entregaEvidencia?.valor}</h3>
           <h3>Pagamento: {entregaEvidencia?.pagamento}</h3>
           <h3>Entregador: {entregaEvidencia?.entregador}</h3>
+          {entregaEvidencia?.observacoes && (
+            <h3>Observações: {entregaEvidencia.observacoes}</h3>
+          )}
         </div>
       </div>
     </>

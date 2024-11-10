@@ -33,6 +33,7 @@ export default function EntregaSingular() {
     pagamento: "",
     entregador: "",
     volume: "",
+    observacoes: "",
   });
 
   const removendoEntrega = (entrega: entregasTipo) => {
@@ -55,7 +56,9 @@ export default function EntregaSingular() {
 
   return entregasDia?.map((entrega) => {
     const modificandoInputs = (
-      event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      event: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >
     ) => {
       setDadosFormUpdate({
         ...dadosFormUpdate,
@@ -87,6 +90,7 @@ export default function EntregaSingular() {
           <p>Entregador: {entrega.entregador}</p>
           <p>Volume: {entrega.volume}</p>
           <p>Pagamento: {entrega.pagamento}</p>
+          {entrega.observacoes && <p>Observações: {entrega.observacoes}</p>}
         </div>
 
         <div className={estilo.botoesCaixa}>
@@ -141,6 +145,7 @@ export default function EntregaSingular() {
                 entregador: entrega.entregador,
                 volume: entrega.volume,
                 telefone: entrega.telefone ? entrega.telefone : "",
+                observacoes: entrega.observacoes ? entrega.observacoes : "",
               });
             }}
           >
@@ -242,6 +247,26 @@ export default function EntregaSingular() {
             />
           </h3>
 
+          <h3>
+            Volume:{" "}
+            <input
+              defaultValue={entrega.volume}
+              name="volume"
+              onChange={modificandoInputs}
+            />
+          </h3>
+
+          <h3>
+            Observações:{" "}
+            <textarea
+              defaultValue={entrega.observacoes}
+              name="observacoes"
+              onChange={modificandoInputs}
+              className="w-full p-2 mt-1 border rounded bg-[#47433c] text-white"
+              placeholder="Observações importantes sobre a entrega..."
+            />
+          </h3>
+
           <div className={`${estilo.areaBotoesEditEntrega}`}>
             <button
               onClick={(ev) => {
@@ -256,7 +281,7 @@ export default function EntregaSingular() {
               Cancelar
             </button>
             <button
-              onClick={() => {
+              onClick={(ev) => {
                 if (entrega.id) {
                   let telaUpdateEntrega = document.getElementById(entrega.id);
                   let novosDadosDefinidos: entregasTipo = {
@@ -301,10 +326,21 @@ export default function EntregaSingular() {
                       telaUpdateEntrega?.children[9]
                         .children[0] as HTMLInputElement
                     ).value,
+                    observacoes: (
+                      telaUpdateEntrega?.children[10]
+                        .children[0] as HTMLTextAreaElement
+                    ).value,
                     dia: entrega.dia,
                     coordenadas: entrega.coordenadas,
                   };
                   socket.emit("Atualizar Entrega", novosDadosDefinidos);
+                  ev.currentTarget.parentElement?.parentElement?.classList.toggle(
+                    estilo.areaBotoesEditFora
+                  );
+                  let cxEntrega =
+                    ev.currentTarget.parentElement?.parentElement
+                      ?.parentElement;
+                  cxEntrega?.classList.toggle(estilo.caixaEditando);
                 }
               }}
             >

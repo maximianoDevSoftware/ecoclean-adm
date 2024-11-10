@@ -16,4 +16,5 @@ export type entregasTipo = {
   pagamento: string;
   entregador: string;
   volume: string;
+  observacoes?: string;
 };

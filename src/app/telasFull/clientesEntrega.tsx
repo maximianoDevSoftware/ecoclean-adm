@@ -45,6 +45,7 @@ export default function ClientesEntregas() {
     pagamento: "Dinheiro",
     entregador: "Marcos",
     volume: "Carro",
+    observacoes: "",
   });
 
   const [selectCliente, setSelectCliente] = useState<clientesTipo>({
@@ -125,7 +126,9 @@ export default function ClientesEntregas() {
   };
 
   const modificandoInputs = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setEditData({
       ...editData,
@@ -155,6 +158,7 @@ export default function ClientesEntregas() {
       pagamento: editData.pagamento,
       entregador: editData.entregador,
       volume: editData.volume,
+      observacoes: editData.observacoes,
     };
     socket.emit("Criar Entrega", entregaNova);
     console.log("Entrega montada");
@@ -376,6 +380,15 @@ export default function ClientesEntregas() {
                       <option value="Carro">Carro</option>
                       <option value="Moto">Moto</option>
                     </select>
+                  </p>
+                  <p>
+                    Observações:
+                    <textarea
+                      name="observacoes"
+                      placeholder="Observações importantes sobre a entrega..."
+                      onChange={modificandoInputs}
+                      className="w-full p-2 mt-1 border rounded"
+                    />
                   </p>
                 </div>
                 {/* Aqui esta o botão para gerar a entrega do cliente */}

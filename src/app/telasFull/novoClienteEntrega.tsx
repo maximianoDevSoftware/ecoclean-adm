@@ -33,12 +33,15 @@ export default function NovoClienteEntregas() {
     pagamento: "Dinheiro",
     entregador: "Marcos",
     volume: "Carro",
+    observacoes: "",
   });
 
   const socket = getSocket();
 
   const modificandoInputs = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setFormData({
       ...formData,
@@ -69,6 +72,7 @@ export default function NovoClienteEntregas() {
       pagamento: formData.pagamento,
       entregador: formData.entregador,
       volume: formData.volume,
+      observacoes: formData.observacoes,
     };
     socket.emit("Criar Entrega", entregaNova);
     console.log(formData);
@@ -256,6 +260,15 @@ export default function NovoClienteEntregas() {
                       <option value="Carro">Carro</option>
                       <option value="Moto">Moto</option>
                     </select>
+                  </p>
+                  <p>
+                    Observações:
+                    <textarea
+                      name="observacoes"
+                      placeholder="Observações importantes sobre a entrega..."
+                      onChange={modificandoInputs}
+                      className="w-full p-2 mt-1 border rounded"
+                    />
                   </p>
                 </div>
 
