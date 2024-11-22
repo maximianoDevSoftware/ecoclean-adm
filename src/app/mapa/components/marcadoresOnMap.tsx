@@ -2,7 +2,7 @@
 import leaflet, { divIcon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css"; // Importando o estilo CSS do Leaflet Routing Machine
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useCallback } from "react";
 import { contextMapa } from "../meuMapa";
 import { entregasTipo } from "@/types/entregasTypes";
 import "leaflet-routing-machine"; // Importando o Leaflet Routing Machine
@@ -15,8 +15,9 @@ export function MarcadoresMapaonSide() {
   const { mapaPronto, adicionandoMarcadores } = useContext(contextMapa);
   const { marcosUser, ueneUser, leoUser, joaoUser } =
     useContext(contextAutenticacao);
-  const { entregasDia, entregasAndamento, rotasEntregasMotoristas } =
-    useContext(ContextEntregasClientes);
+  const { entregasDia, entregasAndamento } = useContext(
+    ContextEntregasClientes
+  );
 
   // Defina o tipo do objeto de controle de rota
   type RotaControles = {
@@ -103,52 +104,69 @@ export function MarcadoresMapaonSide() {
     }
   }
 
-  useEffect(() => {
-    if (entregasDia && entregasAndamento) {
-      const todasEntregas = entregasDia.concat(entregasAndamento);
-      const entregasCategorizadas = categorizarEntregas(todasEntregas);
+  // Mova a chamada do useEffect para fora do componente principal
+  const atualizarRotas = useCallback(() => {
+    if (!entregasDia || !entregasAndamento) return;
 
-      const entregasOrdenadasMarcos = ordenarEntregasPorProximidade(
-        entregasCategorizadas[0],
-        {
-          latitude: marcosUser.localizacao.latitude,
-          longitude: marcosUser.localizacao.longitude,
-        }
-      );
+    const todasEntregas = entregasDia.concat(entregasAndamento);
+    const entregasCategorizadas = categorizarEntregas(todasEntregas);
 
-      const entregasOrdenadaUene = ordenarEntregasPorProximidade(
-        entregasCategorizadas[1],
-        {
-          latitude: ueneUser.localizacao.latitude,
-          longitude: ueneUser.localizacao.longitude,
-        }
-      );
+    const entregasOrdenadasMarcos = ordenarEntregasPorProximidade(
+      entregasCategorizadas[0],
+      {
+        latitude: marcosUser.localizacao.latitude,
+        longitude: marcosUser.localizacao.longitude,
+      }
+    );
 
-      const entregasOrdenadaLeo = ordenarEntregasPorProximidade(
-        entregasCategorizadas[2],
-        {
-          latitude: leoUser.localizacao.latitude,
-          longitude: leoUser.localizacao.longitude,
-        }
-      );
+    const entregasOrdenadaUene = ordenarEntregasPorProximidade(
+      entregasCategorizadas[1],
+      {
+        latitude: ueneUser.localizacao.latitude,
+        longitude: ueneUser.localizacao.longitude,
+      }
+    );
 
-      const entregasOrdenadaJoao = ordenarEntregasPorProximidade(
-        entregasCategorizadas[3],
-        {
-          latitude: joaoUser.localizacao.latitude,
-          longitude: joaoUser.localizacao.longitude,
-        }
-      );
-      rotasEntregasMotoristas("Marcos", entregasOrdenadasMarcos);
-      rotasEntregasMotoristas("Uene", entregasOrdenadaUene);
-      rotasEntregasMotoristas("Leo", entregasOrdenadaLeo);
-      rotasEntregasMotoristas("Leo", entregasOrdenadaJoao);
+    const entregasOrdenadaLeo = ordenarEntregasPorProximidade(
+      entregasCategorizadas[2],
+      {
+        latitude: leoUser.localizacao.latitude,
+        longitude: leoUser.localizacao.longitude,
+      }
+    );
+
+    const entregasOrdenadaJoao = ordenarEntregasPorProximidade(
+      entregasCategorizadas[3],
+      {
+        latitude: joaoUser.localizacao.latitude,
+        longitude: joaoUser.localizacao.longitude,
+      }
+    );
+
+    // Desenhe as rotas diretamente sem chamar rotasEntregasMotoristas
+    if (mapaPronto) {
       desenharRota(entregasOrdenadasMarcos, marcosUser, "#01c1fcc3");
       desenharRota(entregasOrdenadaUene, ueneUser, "#b90000c7");
       desenharRota(entregasOrdenadaLeo, leoUser, "#ffee00cf");
       desenharRota(entregasOrdenadaJoao, joaoUser, "#33ff0099");
     }
-  }, [entregasDia, entregasAndamento]);
+  }, [
+    entregasDia,
+    entregasAndamento,
+    marcosUser.localizacao.latitude,
+    marcosUser.localizacao.longitude,
+    ueneUser.localizacao.latitude,
+    ueneUser.localizacao.longitude,
+    leoUser.localizacao.latitude,
+    leoUser.localizacao.longitude,
+    joaoUser.localizacao.latitude,
+    joaoUser.localizacao.longitude,
+    mapaPronto,
+  ]);
+
+  useEffect(() => {
+    atualizarRotas();
+  }, [atualizarRotas]);
 
   return (
     <div>

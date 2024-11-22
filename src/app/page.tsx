@@ -7,6 +7,7 @@ import ClientesEntregas from "./telasFull/clientesEntrega";
 import NovoClienteEntregas from "./telasFull/novoClienteEntrega";
 import { TelaFullRelatEntregas } from "./Relatorio Entregas/telaRelEntregas";
 import { FaMapMarkedAlt, FaPeopleCarry, FaUsers } from "react-icons/fa";
+import UpdateToast from "@/components/UpdateToast";
 
 const Mapa = dynamic(() => import("./mapa/meuMapa"), { ssr: false });
 const MotoraLogin = dynamic(() => import("./usuariosLogados/motoristaLogin"), {
@@ -53,6 +54,7 @@ export default function Home() {
             <MotoraLogin />
             <TelaMarcadorInform />
             <TelaFullRelatEntregas />
+            <UpdateToast />
 
             <div className={"areaBtnCelular"}>
               <button onClick={() => trocandoTela("mapa")}>
