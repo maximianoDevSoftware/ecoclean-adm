@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.telaFullRelatorioEntregas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.telaFullRelatorioEntregasFora {
+  transform: translateX(-100%);
+}
+
+.containerMarrom {
+  width: 90%;
+  height: 90%;
+  background-color: #7a7265;
+  border-radius: 20px;
+  overflow-y: hidden;
+  position: relative;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.containerMarromAtivo {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.containerMarrom::-webkit-scrollbar {
+  width: 12px;
+}
+
+.containerMarrom::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0);
+  border-radius: 10px;
+}
+
+.containerMarrom::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+.containerGridRelatorios {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "tituloDispx tituloDispx infoMotora2 infoMotora2 infoMotora2"
+    "infoMotora1 infoMotora1 infoMotora2 infoMotora2 infoMotora2"
+    "infoMotora3 infoMotora3 infoMotora3 infoMotora4 infoMotora4"
+    "infoMotora3 infoMotora3 infoMotora3 infoMotora4 infoMotora4";
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+  overflow-y: auto;
+  gap: 20px;
+}
+
+.tituloDisplay {
+  grid-area: tituloDispx;
+  font-family: Montserrat;
+  color: rgb(239, 244, 255);
+  font-size: 50px;
+  text-shadow: 90px 30px 5px rgba(0, 0, 0, 0.509);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.tituloDisplayAtivo {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.informsGraficoDisplay {
+  grid-area: infoMotora3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: #47433c;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.informsGraficoDisplayAtivo {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.informsTabelaDisplay {
+  grid-area: infoMotora2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.informsTabelaDisplayAtivo {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.informsFormularioDisplay {
+  grid-area: infoMotora4;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.informsFormularioDisplayAtivo {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.informsEntregasDiaDisplay {
+  grid-area: infoMotora1;
+  background-color: rgb(207, 201, 194);
+  border-radius: 15px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.informsEntregasDiaDisplayAtivo {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.telaInfosMotoristaRel {
+  width: 100%;
+  background-color: #47433c;
+  border-radius: 15px;
+}
+
+.tituloRelatorioMotoristas {
+  font-family: Montserrat;
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gridMotoristas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cardMotorista {
+  background-color: #7a7265;
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.cardMotorista:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nomeMotorista {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 2px solid #47433c;
+  padding-bottom: 5px;
+}
+
+.estatisticas {
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+.estatisticas p {
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #47433c;
+  border-radius: 5px;
+}
+
+/* Media query para telas menores que 720px */
+@media (max-width: 720px) {
+  .containerMarrom {
+    padding: 10px;
+    width: 95%;
+    overflow-x: hidden;
+  }
+
+  .containerGridRelatorios {
+    grid-template-areas:
+      "tituloDispx"
+      "infoMotora2"
+      "infoMotora4"
+      "infoMotora1"
+      "infoMotora3";
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 300px 300px 300px 800px;
+    gap: 10px;
+  }
+
+  /* Garantindo que todos os elementos filhos se ajustem */
+  .containerMarrom > *,
+  .containerGridRelatorios > *,
+  .informsGraficoDisplay,
+  .informsTabelaDisplay,
+  .informsFormularioDisplay,
+  .informsEntregasDiaDisplay,
+  .telaInfosMotoristaRel,
+  .cardMotorista {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    box-sizing: border-box !important;
+  }
+
+  .tituloDisplay {
+    font-size: 25px;
+    text-shadow: none;
+  }
+
+  /* Ajustando os gráficos */
+  .informsGraficoDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 800px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Removendo os estilos anteriores e usando uma abordagem mais direta */
+  .chart-container,
+  .chart-container2 {
+    min-width: 350px;
+    min-height: 350px;
+    width: 350px;
+    height: 350px;
+  }
+
+  .chart-container > canvas,
+  .chart-container2 > canvas {
+    min-width: 350px !important;
+    min-height: 350px !important;
+    width: 350px !important;
+    height: 350px !important;
+  }
+
+  .chart-container2 {
+    position: relative !important;
+    width: 350px !important;
+    height: 350px !important;
+  }
+
+  /* Removendo os estilos anteriores que podem estar interferindo */
+  .chart-container2 > canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Estilizando a scrollbar */
+.containerGridRelatorios::-webkit-scrollbar {
+  width: 8px;
+}
+
+.containerGridRelatorios::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0);
+  border-radius: 10px;
+}
+
+.containerGridRelatorios::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 166, 0, 0);
+}
+
+/* Estilos base dos gráficos (fora do media query) */
+.chart-container,
+.chart-container2 {
+  width: 100%;
+  position: relative;
+}
+
+.chart-container canvas,
+.chart-container2 canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos base */
+.chart-container2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

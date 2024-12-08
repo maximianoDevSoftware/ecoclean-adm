@@ -1,0 +1,470 @@
+/******************************************* SIDE BAR *********/
+
+.sideBarArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: #e6eef4;
+  background: linear-gradient(145deg, #e6eef4, #d4e3f0);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.15),
+    inset -2px 0 15px rgba(0, 0, 0, 0.1), 3px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sideBarArea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sideBarArea::-webkit-scrollbar-track {
+  background: rgba(212, 225, 238, 0.5);
+  border-radius: 10px;
+}
+
+.sideBarArea::-webkit-scrollbar-thumb {
+  background: #91b4d4;
+  border-radius: 10px;
+}
+
+.sideBarArea::-webkit-scrollbar-thumb:hover {
+  background: #7a9fc1;
+}
+
+.areaLoginStatus {
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 5px black;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+  margin: 10px auto;
+  overflow: hidden;
+  height: 70px;
+  transition: 0.3s;
+  z-index: 10;
+  position: relative;
+}
+
+/******************************************* SB - DISPLAY ENTREGAS *****/
+
+.displayEntregas {
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 5px black;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+  margin: 10px auto;
+  overflow: hidden;
+  height: 70px;
+  transition: 0.3s;
+}
+
+.displayEntregasAberto {
+  height: auto;
+}
+
+.titulosDisplay {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.quantidadeTitulo {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+}
+
+.areaInformsDisp {
+  background-color: whitesmoke;
+  padding: 15px;
+  height: 350px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.areaInformsDisp::-webkit-scrollbar {
+  width: 12px;
+}
+
+.areaInformsDisp::-webkit-scrollbar-track {
+  background: whitesmoke;
+  border-radius: 10px;
+}
+
+.areaInformsDisp::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+/************************************ Cada entrega no display*/
+
+.caixaEntrega {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  height: 50px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.caixaAberta {
+  height: auto;
+  background-color: rgb(220, 220, 220);
+}
+
+.caixaEditando {
+  height: 600px;
+}
+
+.tituloCaixa {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.informCaixa {
+  margin-top: 10px;
+}
+
+.botoesCaixa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 250px;
+  margin: 10px auto;
+}
+
+.botoesCaixa button {
+  padding: 5px;
+  box-shadow: 2px 2px 3px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  border-radius: 50%;
+  transition: 0.3s;
+  font-weight: bolder;
+}
+
+.botoesCaixa button:hover {
+  transform: scale(1.1);
+}
+/*******************   bandeiras para representar os botoes    ***/
+
+.botoesCaixa .interMensagens:hover {
+  color: green;
+  box-shadow: 2px 2px 5px green;
+}
+
+.interMensagens::after {
+  content: 'Mensagem "a caminho" para seu cliente';
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(400px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 0;
+}
+
+.interMensagens:hover::after {
+  transform: translate(60px, -80%);
+  opacity: 1;
+}
+
+.executandoMensagem::after {
+  content: "Mensagem sendo enviada...";
+  width: 200px;
+  position: absolute;
+  background-color: rgb(171, 171, 247);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 0;
+}
+
+.mensagemEnviada:after {
+  content: "Mensagem enviada com Sucesso!";
+  width: 200px;
+  position: absolute;
+  background-color: rgb(58, 106, 60);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  color: white;
+  opacity: 0;
+}
+
+.botoesCaixa .editLocationBTN:hover {
+  color: rgb(0, 128, 128);
+  box-shadow: 2px 2px 5px rgb(0, 128, 128);
+}
+
+.editLocationBTN::after {
+  content: "Viajar até a localização do cliente.";
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(350px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 0;
+}
+
+.editLocationBTN:hover::after {
+  transform: translate(30px, -80%);
+  opacity: 1;
+}
+
+.botoesCaixa .interEdit:hover {
+  color: rgb(75, 0, 128);
+  box-shadow: 2px 2px 5px rgb(75, 0, 128);
+}
+
+.interEdit::after {
+  content: "Editar entrega.";
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(300px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 0;
+}
+
+.interEdit:hover::after {
+  transform: translate(-30px, -80%);
+  opacity: 1;
+}
+
+.botoesCaixa .interRemove:hover {
+  color: rgb(128, 0, 0);
+  box-shadow: 2px 2px 5px rgb(128, 0, 0);
+}
+
+.interRemove::after {
+  content: "Remover entrega.";
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(250px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 0;
+}
+
+.interRemove:hover::after {
+  transform: translate(-60px, -80%);
+  opacity: 1;
+}
+
+/****************** Caixas internas de cada entrega  ******/
+
+.caixaEditEntrega {
+  box-shadow: -10px -10px 10px #1b860070 inset;
+  background-color: rgb(50, 50, 80);
+  color: whitesmoke;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0.5s;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.caixaEditEntrega H3 {
+  font-size: 14px;
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.caixaEditEntrega input {
+  float: right;
+  width: 140px;
+  padding: 5px;
+  background-color: rgb(76, 76, 119);
+  color: rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+.areaBotoesEditEntrega {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px auto;
+}
+
+.areaBotoesEditFora {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.areaBotoesEditEntrega button {
+  padding: 5px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.areaBotoesEditEntrega button:nth-of-type(1) {
+  background-color: #292f69;
+  border: 2px solid firebrick;
+  color: whitesmoke;
+}
+
+.areaBotoesEditEntrega button:nth-of-type(2) {
+  background-color: #292f69;
+  border: 2px solid green;
+  color: whitesmoke;
+}
+
+.areaBotoesEditEntrega button:nth-of-type(1):hover {
+  background-color: whitesmoke;
+  color: firebrick;
+}
+
+.areaBotoesEditEntrega button:nth-of-type(2):hover {
+  background-color: whitesmoke;
+  color: green;
+}
+
+/******************************** AREA BOTOES ENTREGAS PARA ADMS ****/
+
+.admBtnEntregas {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.gerarEntregasBTN {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  box-shadow: 2px 2px 5px black;
+  transition: 0.3s;
+  overflow: hidden;
+  transition: 0.3s;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.abrirBotaoInicial {
+  height: 200px;
+}
+
+.tituloGerarEntregas {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.gerarEntregasBTN button {
+  display: block;
+  margin: 15px auto;
+  text-align: left;
+  border-radius: 20px;
+  width: 90%;
+  transition: 0.3s;
+  padding: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.gerarEntregasBTN button:hover {
+  padding-left: 100px;
+  box-shadow: 2px 2px 5px black, 0px 0px 20px inset rgb(138, 138, 138);
+}
+
+/*************************************** DISPLAY ANDAMENTO **************/
+
+.botoesCaixaDisp {
+  position: relative;
+}
+
+.botoesCaixaDisp .iterLocationMorist:hover {
+  color: green;
+  box-shadow: 2px 2px 5px green;
+}
+
+.botoesCaixaDisp .iterLocationMorist::after {
+  content: "Encontrar a localização do motorista";
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(320px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 1;
+}
+
+.iterLocationMorist:hover::after {
+  transform: translate(20px, -80%);
+}
+
+.botoesCaixaDisp .iterLocationEntrega:hover {
+  color: #0cbfc8;
+  box-shadow: 2px 2px 5px #097b82;
+}
+
+.botoesCaixaDisp .iterLocationEntrega::after {
+  content: "Encontrar a localização da entrega";
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  transform: translate(250px, -80%);
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 13px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px gray;
+  opacity: 1;
+}
+
+.iterLocationEntrega:hover::after {
+  transform: translate(-20px, -80%);
+}
+
+@media screen and (max-width: 720px) {
+  .sideBarArea {
+    width: 100%;
+  }
+}
+
+.mapaElemento {
+  z-index: 5;
+  position: relative;
+}

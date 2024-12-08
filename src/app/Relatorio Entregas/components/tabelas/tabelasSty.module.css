@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.tabelaSemana {
+  border: 1px solid black;
+  border-collapse: collapse;
+  position: relative;
+  color: #dbdbdb;
+  font-family: "Montserrat", cursive, sans-serif;
+  transition: 0.3s;
+  width: 100%;
+  background-color: #47433c;
+}
+
+.tabelaSemana thead {
+  text-align: center;
+}
+
+.tabelaSemana tr {
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+.tabelaSemana td {
+  border: 1px solid black;
+  padding: 10px 10px;
+  transition: 0.3s;
+}
+
+.tabelaSemana tr:hover {
+  border: 1px solid whitesmoke;
+  color: white;
+}
+
+.campoNome {
+  font-size: 12px;
+}
+
+.campoStatus {
+  font-size: 12px;
+}
+
+.campoMotorista {
+  font-size: 12px;
+}
+
+.campoValor {
+  font-size: 12px;
+  min-width: 100px;
+}
+
+.selectStatus {
+  width: 100%;
+  padding: 2px 5px;
+  background-color: #47433c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.selectStatus option {
+  background-color: #47433c;
+  color: white;
+}
+
+.campoStatus {
+  transition: all 0.3s ease;
+}
+
+.campoStatus:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.inputValor {
+  width: 100%;
+  padding: 2px 5px;
+  background-color: #47433c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  font-size: 12px;
+}
+
+@media (max-width: 720px) {
+  .tabelaSemana {
+    font-size: 11px;
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .tabelaSemana td,
+  .tabelaSemana th {
+    padding: 8px 5px;
+    white-space: nowrap;
+  }
+
+  .campoNome {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .campoStatus,
+  .campoMotorista {
+    min-width: 80px;
+  }
+
+  .campoValor {
+    min-width: 70px;
+  }
+}

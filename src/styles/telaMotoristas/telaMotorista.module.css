@@ -1,0 +1,344 @@
+.fotoMarcosMotora {
+  background-image: url("../../../public/marcos.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.fotoUeneMotora {
+  background-image: url("../../../public/uene.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(1.2);
+  width: 100%;
+  height: 100%;
+}
+
+.fotoLeoMotora {
+  background-image: url("../../../public/leo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(1.2);
+  width: 100%;
+  height: 100%;
+}
+
+.fotoJoaoMotora {
+  background-image: url("../../../public/joao.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.telaFullMotora {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.telaFullMotora::-webkit-scrollbar {
+  width: 12px;
+}
+
+.telaFullMotora::-webkit-scrollbar-track {
+  background: whitesmoke;
+  border-radius: 10px;
+}
+
+.telaFullMotora::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+.dispMotora {
+  background-color: #008f0000;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.13) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(20px);
+}
+
+.andMotora {
+  background-color: #0004ec00;
+  background-image: linear-gradient(
+    45deg,
+    rgba(0, 110, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.areaInformsDispMotora {
+  background-color: whitesmoke;
+  padding: 15px;
+  height: 500px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.areaInformsDispMotora::-webkit-scrollbar {
+  width: 12px;
+}
+
+.areaInformsDispMotora::-webkit-scrollbar-track {
+  background: whitesmoke;
+  border-radius: 10px;
+}
+
+.areaInformsDispMotora::-webkit-scrollbar-thumb {
+  background: rgb(73, 95, 69);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 166, 0, 0);
+}
+
+.displayMotoraEntregas {
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 5px black;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+  margin: 10px auto;
+  overflow: hidden;
+  height: 70px;
+  transition: 0.3s;
+}
+
+.displayMotoraEntregasAberto {
+  height: 600px;
+}
+
+.caixaEntregaMotora {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  height: 50px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.caixaAbertaMotora {
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 30px rgba(9, 0, 0, 0.4) inset;
+  padding: 20px;
+  border-radius: 15px;
+  border-bottom: 3px solid rgb(53, 177, 53);
+}
+
+.caixaAbertaMotoraAnd {
+  height: 560px;
+}
+
+.botoesCaixaMotora {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.botoesCaixaMotora button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7), -3px -3px 5px rgba(0, 0, 0, 0.7),
+    3px 3px 5px rgba(0, 0, 0, 0.4) inset, -3px -3px 5px rgba(0, 0, 0, 0.4) inset;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}
+
+.botoesCaixaMotora button:active {
+  box-shadow: 3px 3px 5px #76db58b3, -3px -3px 5px #76db58b3,
+    3px 3px 5px #26752d66 inset, -3px -3px 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.botaoEfetuado {
+  box-shadow: 3px 3px 5px #76db58b3, -3px -3px 5px #76db58b3,
+    3px 3px 5px #26752d66 inset, -3px -3px 5px #26752d66 inset;
+}
+
+.buttonEntregaInit {
+  transform: translateX(200vw);
+}
+
+.iconeInitEntrega {
+  font-size: 40px;
+  display: inline-block;
+}
+
+.entregaIniciadaMotora {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  border: 2px solid #c8cdd3;
+  box-shadow: 0px 0px 20px #008f00, 3px 3px 5px #00ff00 inset,
+    -3px -3px 5px #00ff00 inset;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #dee6f0;
+  transition-delay: 3s;
+  transition: transform 0.3s, opacity 4s;
+  opacity: 1;
+  transform: translateX(-200vw);
+  font-weight: bolder;
+}
+
+.aindaNaoInitEntrega {
+  opacity: 0;
+  transform: translateX(-300vw);
+  transition-delay: 3s;
+}
+
+.areaSaudacaoMotra {
+  width: 350px;
+  height: 350px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 10;
+}
+
+.bomDiaMotora {
+  font-size: 30px;
+}
+
+.fotoUsuarioMotora {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.entregaMotoristaLogado {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  animation: animandoIconeEntregaElLogin 2s linear alternate infinite;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@keyframes animandoIconeEntregaElLogin {
+  0% {
+    transform: scale(1);
+    color: #032070;
+    border: 2px solid #0ea700;
+    box-shadow: 0px 0px 5px #17ff02;
+  }
+  100% {
+    transform: scale(1.2);
+    color: #119ec9;
+    border: 2px solid #0f03b6;
+    box-shadow: 0px 0px 5px #0f03b6;
+  }
+}
+
+.mensagemEntregaMotora {
+  top: 0px;
+  left: auto;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-weight: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.mensagemEntregaMotoraFora {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+.entregaDesteEntregador {
+  box-shadow: 3px 3px 10px rgb(0, 128, 0);
+  border: 3px solid green;
+  border-radius: 15px;
+  animation: entregaDesteEntregadorAnim 1s linear infinite alternate;
+}
+
+@keyframes entregaDesteEntregadorAnim {
+  0% {
+    box-shadow: 3px 3px 10px rgb(0, 128, 0);
+  }
+
+  100% {
+    box-shadow: 3px 3px 40px rgb(0, 128, 0);
+  }
+}
+
+.entregaAndEntregador {
+  box-shadow: 3px 3px 10px rgb(19, 166, 211);
+  border: 3px solid rgb(19, 166, 211);
+  border-radius: 15px;
+  animation: entregaAndEntregadorAnim 1s linear 0.5s infinite alternate;
+}
+
+@keyframes entregaAndEntregadorAnim {
+  0% {
+    box-shadow: 3px 3px 10px rgb(19, 166, 211);
+  }
+
+  100% {
+    box-shadow: 3px 3px 40px rgb(19, 166, 211);
+  }
+}
+
+.fundoEntregaDispUsuario {
+  box-shadow: 0px 0px 100px #0080007a inset;
+  animation: animandoEntregaDispUser 1s linear infinite alternate;
+}
+
+@keyframes animandoEntregaDispUser {
+  0% {
+    box-shadow: 0px 0px 10px #0080007a inset;
+  }
+
+  100% {
+    box-shadow: 0px 0px 250px #0080007a inset;
+  }
+}
+
+.entregaDispDisp {
+  box-shadow: 0px 0px 0px #01ce017a;
+  animation: animandoentregaDispDisp 1s linear 2s infinite alternate;
+}
+
+@keyframes animandoentregaDispDisp {
+  0% {
+    box-shadow: 0px 0px 0px #01ce017a, 0px 0px 0px #01ce017a inset;
+  }
+
+  100% {
+    box-shadow: 0px 0px 20px #01ce017a, 0px 0px 20px #01ce017a inset;
+  }
+}
